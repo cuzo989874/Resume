@@ -15,10 +15,10 @@ export const zhTW = {
   },
   sections: {
     skills: "相關技能",
-    experience: "Work Experience",
+    experience: "工作經歷",
     education: "學歷",
     competitions: "競賽資歷",
-    outsourcing: "外包項目 - 長照電商"
+    outsourcing: "外包項目"
   },
   skills: {
     frontend: "前端",
@@ -129,6 +129,7 @@ export const zhTW = {
     "Dexon DAPP Hackthon"
   ],
   outsourcing: {
+    longTermCareECommerce: "長照電商",
     desc: "在這個Case ，我負責UI/UX的負責人以及整個後台的Front end 。",
     desc2: "需要讓不同年齡層的使用者便捷使用，針對所有功能因團隊時間零散的關係只能採MVP開發；需要與客戶討論商業模式。在設計的同時需要留下未來的高度延展性，除了服務面需要提供整合的配套措施，也需要針對團隊每個工作階段的內容提出具體的功能劃分。",
     desc3: "程式方面以Quasar為模板，router tree construct with auth 以及跨頁面資料交互。"

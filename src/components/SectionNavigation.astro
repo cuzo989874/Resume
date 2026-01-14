@@ -1,0 +1,181 @@
+---
+interface Props {
+  sections: Array<{ id: string; title: string }>;
+  currentLang: 'zh-TW' | 'en';
+}
+
+const { sections } = Astro.props;
+---
+
+<nav class="section-navigation" id="section-navigation">
+  <ul class="nav-list">
+    {sections.map((section) => (
+      <li class="nav-item">
+        <a
+          href={`#${section.id}`}
+          class="nav-link"
+          data-section-id={section.id}
+          aria-label={`Navigate to ${section.title}`}
+        >
+          {section.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  (function() {
+    // 平滑滚动到目标 section
+    const scrollToSection = (sectionId: string) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerOffset = 24; // 为固定头部留出空间
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    // 更新当前激活的导航项
+    const updateActiveNav = () => {
+      const sections = document.querySelectorAll('.section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let currentSection = '';
+      const scrollPosition = window.scrollY + 150; // 偏移量，用于检测当前 section
+
+      sections.forEach((section) => {
+        const element = section as HTMLElement;
+        const sectionTop = element.offsetTop;
+        const sectionHeight = element.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = element.id;
+        }
+      });
+
+      // 如果没有找到当前 section，检查是否在页面顶部
+      if (!currentSection && window.scrollY < 200) {
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+        });
+        return;
+      }
+
+      navLinks.forEach((link) => {
+        const sectionId = link.getAttribute('data-section-id');
+        if (sectionId === currentSection) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    };
+
+    // 处理导航链接点击
+    const handleNavClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('.nav-link') as HTMLAnchorElement;
+      
+      if (link) {
+        e.preventDefault();
+        const sectionId = link.getAttribute('data-section-id');
+        if (sectionId) {
+          scrollToSection(sectionId);
+        }
+      }
+    };
+
+    // 初始化
+    const init = () => {
+      const nav = document.getElementById('section-navigation');
+      if (!nav) return;
+
+      // 绑定点击事件
+      nav.addEventListener('click', handleNavClick);
+
+      // 监听滚动事件
+      let ticking = false;
+      const handleScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      
+      // 初始更新
+      updateActiveNav();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+<style>
+  .section-navigation {
+    position: fixed;
+    left: 32px;
+    top: min(160px, 10dvh);
+    z-index: 100;
+    max-width: 200px;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 8px 0;
+    padding-left: 16px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    padding-left: 20px;
+  }
+
+  .nav-link.active {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    font-weight: 500;
+    padding-left: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    .section-navigation {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .section-navigation {
+      left: 16px;
+    }
+  }
+</style>

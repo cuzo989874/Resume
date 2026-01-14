@@ -2,6 +2,7 @@
 interface Props {
   title: string;
   outsourcing: {
+    longTermCareECommerce: string;
     desc: string;
     desc2: string;
     desc3: string;
@@ -11,12 +12,13 @@ interface Props {
 const { title, outsourcing } = Astro.props;
 ---
 
-<section class="section outsourcing-section">
+<section id="outsourcing" class="section outsourcing-section">
   <h3 class="section-title">{title}</h3>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-marker"></div>
       <div class="timeline-content">
+        <h4>{outsourcing.longTermCareECommerce}</h4>
         <p>{outsourcing.desc}</p>
         <p>{outsourcing.desc2}</p>
         <p>{outsourcing.desc3}</p>

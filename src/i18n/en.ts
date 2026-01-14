@@ -18,7 +18,7 @@ export const en = {
     experience: "Work Experience",
     education: "Education",
     competitions: "Competition Experience",
-    outsourcing: "Outsourcing Project - Long-term Care E-commerce"
+    outsourcing: "Outsourcing Project"
   },
   skills: {
     frontend: "Frontend",
@@ -129,6 +129,7 @@ export const en = {
     "Dexon DAPP Hackathon"
   ],
   outsourcing: {
+    longTermCareECommerce: "Long-term Care E-commerce",
     desc: "In this case, I was responsible for UI/UX leadership and the entire backend frontend.",
     desc2: "Needed to make it convenient for users of different age groups. Due to the team's fragmented time, all features could only be developed using MVP approach. Needed to discuss business models with clients. While designing, needed to leave high extensibility for the future. In addition to service integration, needed to propose specific functional divisions for each work phase of the team.",
     desc3: "Programmatically used Quasar as the template, router tree construction with auth, and cross-page data interaction."

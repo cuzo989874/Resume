@@ -75,21 +75,21 @@ a:hover {
 
 .container {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 24px auto;
   background: var(--card-bg);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  padding: 40px;
+  padding: 24px 32px;
 }
 
 /* Header */
 .resume-header {
   display: flex;
   align-items: center;
-  gap: 32px;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -130,7 +130,7 @@ a:hover {
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: var(--text-light);
   font-size: 0.95rem;
   border: 1px solid var(--border-color);
@@ -248,7 +248,7 @@ a:hover {
 .job-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-top: 8px;
   margin-bottom: 12px;
 }
@@ -266,6 +266,13 @@ a:hover {
 
 .job-tag:hover {
   background-color: #d2e3fc;
+}
+
+.timeline-content h4 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .timeline-content p {
@@ -383,7 +390,7 @@ a:hover {
 /* Footer */
 .resume-footer {
   border-top: 1px solid var(--border-color);
-  margin-top: 60px;
+  margin-top: 40px;
   padding-top: 24px;
   text-align: center;
   color: #999;
@@ -395,7 +402,7 @@ a:hover {
   .resume-header {
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 24px;
   }
 
   .contact-info {
@@ -418,7 +425,7 @@ a:hover {
   .timeline-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 8px;
   }
 
   .container {
