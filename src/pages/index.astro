@@ -6,12 +6,23 @@ import ExperienceSection from '../components/ExperienceSection.astro';
 import EducationSection from '../components/EducationSection.astro';
 import CompetitionsSection from '../components/CompetitionsSection.astro';
 import OutsourcingSection from '../components/OutsourcingSection.astro';
+import SectionNavigation from '../components/SectionNavigation.astro';
 import { zhTW } from '../i18n/zh-TW';
 import { generateStructuredData } from '../utils/structuredData';
+import { getFullUrl } from '../config/seo';
 
 const t = zhTW;
 const structuredData = generateStructuredData('zh-TW');
-const canonical = 'https://your-domain.com/';
+const canonical = getFullUrl();
+const alternateUrl = getFullUrl('en/');
+
+const sections = [
+  { id: 'skills', title: t.sections.skills },
+  { id: 'experience', title: t.sections.experience },
+  { id: 'education', title: t.sections.education },
+  { id: 'competitions', title: t.sections.competitions },
+  { id: 'outsourcing', title: t.sections.outsourcing },
+];
 ---
 
 <BaseLayout
@@ -24,7 +35,10 @@ const canonical = 'https://your-domain.com/';
   lang="zh-TW"
   canonical={canonical}
   structuredData={structuredData}
+  alternateLang="en"
+  alternateUrl={alternateUrl}
 >
+  <SectionNavigation sections={sections} currentLang="zh-TW" />
   <div class="container">
     <ResumeHeader
       name={t.header.name}

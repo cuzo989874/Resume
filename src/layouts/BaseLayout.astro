@@ -2,6 +2,7 @@
 import '../styles/style.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import DarkModeSwitcher from '../components/DarkModeSwitcher.astro';
+import { SEO_CONFIG, getImageUrl } from '../config/seo';
 
 interface Props {
   title: string;
@@ -13,6 +14,8 @@ interface Props {
   lang: string;
   canonical: string;
   structuredData: object;
+  alternateLang?: string;
+  alternateUrl?: string;
 }
 
 const {
@@ -24,8 +27,13 @@ const {
   twitterDescription,
   lang,
   canonical,
-  structuredData
+  structuredData,
+  alternateLang,
+  alternateUrl
 } = Astro.props;
+
+const ogImage = getImageUrl();
+const isZhTW = lang === 'zh-TW';
 ---
 
 <!DOCTYPE html>
@@ -40,22 +48,49 @@ const {
   <meta name="robots" content="index, follow">
   <link rel="canonical" href={canonical}>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- hreflang tags for multilingual SEO -->
+  {alternateLang && alternateUrl && (
+    <>
+      <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
+      <link rel="alternate" hreflang={lang} href={canonical} />
+      <link rel="alternate" hreflang="x-default" href={canonical} />
+    </>
+  )}
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content={ogTitle}>
   <meta property="og:description" content={ogDescription}>
-  <meta property="og:image" content="https://your-domain.com/assets/avatar.png">
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:image:alt" content={isZhTW ? '繆勝翔 (Cuzo) - 資深前端工程師個人照片' : 'Sheng-Hsiang Miao (Cuzo) - Senior Frontend Engineer Profile Photo'}>
   <meta property="og:url" content={canonical}>
-  <meta property="og:locale" content={lang === 'zh-TW' ? 'zh_TW' : 'en_US'}>
-  <meta property="profile:first_name" content={lang === 'zh-TW' ? '勝翔' : 'Sheng-Hsiang'}>
-  <meta property="profile:last_name" content={lang === 'zh-TW' ? '繆' : 'Miao'}>
+  <meta property="og:locale" content={isZhTW ? 'zh_TW' : 'en_US'}>
+  {alternateLang && alternateUrl && (
+    <meta property="og:locale:alternate" content={alternateLang === 'zh-TW' ? 'zh_TW' : 'en_US'} />
+  )}
+  <meta property="profile:first_name" content={isZhTW ? '勝翔' : 'Sheng-Hsiang'}>
+  <meta property="profile:last_name" content={isZhTW ? '繆' : 'Miao'}>
   <meta property="profile:username" content="Cuzo">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={ogTitle}>
   <meta name="twitter:description" content={twitterDescription}>
-  <meta name="twitter:image" content="https://your-domain.com/assets/avatar.png">
+  <meta name="twitter:image" content={ogImage}>
+  <meta name="twitter:image:alt" content={isZhTW ? '繆勝翔 (Cuzo) - 資深前端工程師個人照片' : 'Sheng-Hsiang Miao (Cuzo) - Senior Frontend Engineer Profile Photo'}>
+  {SEO_CONFIG.twitterHandle && (
+    <meta name="twitter:creator" content={SEO_CONFIG.twitterHandle} />
+  )}
+  
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#6366f1">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,6 +1,7 @@
+import { getFullUrl } from '../config/seo';
+
 export function generateStructuredData(locale: 'zh-TW' | 'en') {
-  const baseUrl = 'https://your-domain.com';
-  const url = locale === 'zh-TW' ? baseUrl : `${baseUrl}/en/`;
+  const url = locale === 'zh-TW' ? getFullUrl() : getFullUrl('en/');
   
   if (locale === 'zh-TW') {
     return {

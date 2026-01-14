@@ -6,12 +6,23 @@ import ExperienceSection from '../../components/ExperienceSection.astro';
 import EducationSection from '../../components/EducationSection.astro';
 import CompetitionsSection from '../../components/CompetitionsSection.astro';
 import OutsourcingSection from '../../components/OutsourcingSection.astro';
+import SectionNavigation from '../../components/SectionNavigation.astro';
 import { en } from '../../i18n/en';
 import { generateStructuredData } from '../../utils/structuredData';
+import { getFullUrl } from '../../config/seo';
 
 const t = en;
 const structuredData = generateStructuredData('en');
-const canonical = 'https://your-domain.com/en/';
+const canonical = getFullUrl('en/');
+const alternateUrl = getFullUrl();
+
+const sections = [
+  { id: 'skills', title: t.sections.skills },
+  { id: 'experience', title: t.sections.experience },
+  { id: 'education', title: t.sections.education },
+  { id: 'competitions', title: t.sections.competitions },
+  { id: 'outsourcing', title: t.sections.outsourcing },
+];
 ---
 
 <BaseLayout
@@ -24,7 +35,10 @@ const canonical = 'https://your-domain.com/en/';
   lang="en"
   canonical={canonical}
   structuredData={structuredData}
+  alternateLang="zh-TW"
+  alternateUrl={alternateUrl}
 >
+  <SectionNavigation sections={sections} currentLang="en" />
   <div class="container">
     <ResumeHeader
       name={t.header.name}
