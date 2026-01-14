@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  outsourcing: {
+    desc: string;
+    desc2: string;
+    desc3: string;
+  };
+}
+
+const { title, outsourcing } = Astro.props;
+---
+
+<section class="section outsourcing-section">
+  <h3 class="section-title">{title}</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <p>{outsourcing.desc}</p>
+        <p>{outsourcing.desc2}</p>
+        <p>{outsourcing.desc3}</p>
+      </div>
+    </div>
+  </div>
+</section>

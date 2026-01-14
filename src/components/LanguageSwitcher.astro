@@ -1,0 +1,71 @@
+---
+interface Props {
+  currentLang: 'zh-TW' | 'en';
+}
+
+const { currentLang } = Astro.props;
+const isZhTW = currentLang === 'zh-TW';
+const targetLang = isZhTW ? 'en' : 'zh-TW';
+const targetUrl = isZhTW ? '/en/' : '/';
+const targetLabel = isZhTW ? 'English' : '中文';
+---
+
+<div class="lang-switcher">
+  <a href={targetUrl} class="lang-btn" aria-label={`Switch to ${targetLabel}`}>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    {targetLabel}
+  </a>
+</div>
+
+<style>
+  .lang-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+  }
+
+  .lang-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .lang-btn svg {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .lang-switcher {
+      top: 10px;
+      right: 10px;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+  }
+</style>

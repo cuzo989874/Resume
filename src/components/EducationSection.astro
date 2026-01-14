@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  education: {
+    school: string;
+    date: string;
+    degree: string;
+  };
+}
+
+const { title, education } = Astro.props;
+---
+
+<section class="section education-section">
+  <h3 class="section-title">{title}</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <h4>{education.school}</h4>
+          <span class="date">{education.date}</span>
+        </div>
+        <p>{education.degree}</p>
+      </div>
+    </div>
+  </div>
+</section>

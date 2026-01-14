@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResumeHeader from '../../components/ResumeHeader.astro';
+import SkillsSection from '../../components/SkillsSection.astro';
+import ExperienceSection from '../../components/ExperienceSection.astro';
+import EducationSection from '../../components/EducationSection.astro';
+import CompetitionsSection from '../../components/CompetitionsSection.astro';
+import OutsourcingSection from '../../components/OutsourcingSection.astro';
+import { en } from '../../i18n/en';
+import { generateStructuredData } from '../../utils/structuredData';
+
+const t = en;
+const structuredData = generateStructuredData('en');
+const canonical = 'https://your-domain.com/en/';
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  keywords={t.meta.keywords}
+  ogTitle={t.meta.ogTitle}
+  ogDescription={t.meta.ogDescription}
+  twitterDescription={t.meta.twitterDescription}
+  lang="en"
+  canonical={canonical}
+  structuredData={structuredData}
+>
+  <div class="container">
+    <ResumeHeader
+      name={t.header.name}
+      title={t.header.title}
+      summary={t.header.summary}
+      avatarAlt={t.header.avatarAlt}
+    />
+
+    <main>
+      <SkillsSection title={t.sections.skills} skills={t.skills} />
+      <ExperienceSection title={t.sections.experience} experience={t.experience} />
+      <EducationSection title={t.sections.education} education={t.education} />
+      <CompetitionsSection title={t.sections.competitions} competitions={t.competitions} />
+      <OutsourcingSection title={t.sections.outsourcing} outsourcing={t.outsourcing} />
+    </main>
+
+    <footer class="resume-footer">
+      <p>&copy; 2026 Cuzo Miao. All rights reserved.</p>
+    </footer>
+  </div>
+</BaseLayout>

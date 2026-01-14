@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  skills: {
+    frontend: string;
+    backend: string;
+    server: string;
+    jsFrameworks: string;
+    cssLang: string;
+    devLanguages: string;
+    database: string;
+    webServer: string;
+    cloudPlatform: string;
+  };
+}
+
+const { title, skills } = Astro.props;
+---
+
+<section class="section skills-section">
+  <h3 class="section-title">{title}</h3>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h4>{skills.frontend}</h4>
+      <div class="skill-subcategory">
+        <h5>{skills.jsFrameworks}</h5>
+        <div class="tags">
+          <span>Vue.js</span>
+          <span>Vuex</span>
+          <span>Vue router</span>
+          <span>Nuxt / vue-cli</span>
+          <span>quasar</span>
+          <span>Angular2</span>
+          <span>React</span>
+        </div>
+      </div>
+      <div class="skill-subcategory">
+        <h5>{skills.cssLang}</h5>
+        <div class="tags">
+          <span>scss / sass</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>{skills.backend}</h4>
+      <div class="skill-subcategory">
+        <h5>{skills.devLanguages}</h5>
+        <div class="tags">
+          <span>PHP</span>
+          <span>Laravel</span>
+        </div>
+      </div>
+      <div class="skill-subcategory">
+        <h5>{skills.database}</h5>
+        <div class="tags">
+          <span>MySQL</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>{skills.server}</h4>
+      <div class="skill-subcategory">
+        <h5>{skills.webServer}</h5>
+        <div class="tags">
+          <span>Apache</span>
+        </div>
+      </div>
+      <div class="skill-subcategory">
+        <h5>{skills.cloudPlatform}</h5>
+        <div class="tags">
+          <span>Amazon EC2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
