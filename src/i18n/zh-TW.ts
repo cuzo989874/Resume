@@ -1,10 +1,10 @@
 export const zhTW = {
   meta: {
     title: "繆勝翔 (Cuzo) - 資深前端工程師 / UX 支援 | Resume",
-    description: "繆勝翔 (Cuzo)，資深前端工程師，擁有7年前端開發經驗。專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular2、React、TypeScript、SCSS 等技術。",
+    description: "繆勝翔 (Cuzo)，資深前端工程師，擁有7年前端開發經驗。專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular、React、TypeScript、SCSS 等技術。",
     keywords: "前端工程師, Frontend Engineer, Vue.js, Angular, React, TypeScript, UI/UX, ERP, POS, 繆勝翔, Cuzo, 網頁開發",
     ogTitle: "繆勝翔 (Cuzo) - 資深前端工程師 / UX 支援",
-    ogDescription: "擁有7年前端開發經驗，專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular2、React、TypeScript、SCSS 等技術。",
+    ogDescription: "擁有7年前端開發經驗，專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular、React、TypeScript、SCSS 等技術。",
     twitterDescription: "擁有7年前端開發經驗，專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。"
   },
   header: {
@@ -45,7 +45,7 @@ export const zhTW = {
       date: "Feb 2022 ~ Mar 2025",
       desc: "B2B 逆物流服務提供商，為全世界的中小企業提供中轉倉、退貨集運、拆箱定檢等服務。我負責處理對內與對外的內部管理系統，商家可以透過我們提供的 生成式 B2C表單將資料輸入進商家用系統，同時紀錄各種不同來自商家需要拆箱檢查的處理及備註。",
       desc2: "在團隊內我擔任 Front-end mentor，帶領兩個小組員，除了與 UI/UX 設計師溝通以外，也與後端同事協同開發。",
-      desc3: "工作全部都是以 Angular2 撰寫，截至離職時用到 19.2.0，陸續經歷過非常多次的版本迭代， 也 Follow Angular 的版本調整，調整了非常多次的 code style 以及 function 使用。"
+      desc3: "工作全部都是以 Angular 撰寫，截至離職時用到 19.2.0，陸續經歷過非常多次的版本迭代， 也 Follow Angular 的版本調整，調整了非常多次的 code style 以及 function 使用。"
     },
     job3: {
       role: "Wota Lifestyle, 前端網頁工程師",

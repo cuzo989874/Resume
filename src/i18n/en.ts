@@ -1,10 +1,10 @@
 export const en = {
   meta: {
     title: "Sheng-Hsiang Miao (Cuzo) - Senior Frontend Engineer / UX Support | Resume",
-    description: "Sheng-Hsiang Miao (Cuzo), Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular2, React, TypeScript, SCSS, and more.",
+    description: "Sheng-Hsiang Miao (Cuzo), Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular, React, TypeScript, SCSS, and more.",
     keywords: "Frontend Engineer, Vue.js, Angular, React, TypeScript, UI/UX, ERP, POS, Sheng-Hsiang Miao, Cuzo, Web Development",
     ogTitle: "Sheng-Hsiang Miao (Cuzo) - Senior Frontend Engineer / UX Support",
-    ogDescription: "Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular2, React, TypeScript, SCSS, and more.",
+    ogDescription: "Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular, React, TypeScript, SCSS, and more.",
     twitterDescription: "Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration."
   },
   header: {
@@ -45,7 +45,7 @@ export const en = {
       date: "Feb 2022 ~ Mar 2025",
       desc: "B2B reverse logistics service provider, offering transit warehouses, return consolidation, unpacking inspection, and other services to SMEs worldwide. I was responsible for handling both internal and external management systems. Merchants can input data into the merchant system through our generative B2C forms, while recording various processing and notes for unpacking inspections required by merchants.",
       desc2: "Within the team, I served as Front-end mentor, leading two team members. In addition to communicating with UI/UX designers, I also collaborated with backend colleagues on development.",
-      desc3: "All work was written in Angular2, using version 19.2.0 by the time I left. I experienced many version iterations and followed Angular's version adjustments, adjusting code style and function usage many times."
+      desc3: "All work was written in Angular, using version 19.2.0 by the time I left. I experienced many version iterations and followed Angular's version adjustments, adjusting code style and function usage many times."
     },
     job3: {
       role: "Wota Lifestyle, Frontend Web Engineer",

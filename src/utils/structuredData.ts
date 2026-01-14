@@ -15,7 +15,7 @@ export function generateStructuredData(locale: 'zh-TW' | 'en') {
       "sameAs": [
         "https://github.com/cuzo989874"
       ],
-      "description": "擁有7年前端開發經驗，專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular2、React、TypeScript、SCSS 等技術。",
+      "description": "擁有7年前端開發經驗，專精於 ERP、POS 等 B2B 開發以及 UI/UX 協作。擅長 Vue.js、Angular、React、TypeScript、SCSS 等技術。",
       "knowsAbout": [
         "前端開發",
         "Vue.js",
@@ -49,7 +49,7 @@ export function generateStructuredData(locale: 'zh-TW' | 'en') {
       "sameAs": [
         "https://github.com/cuzo989874"
       ],
-      "description": "Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular2, React, TypeScript, SCSS, and more.",
+      "description": "Senior Frontend Engineer with 7 years of frontend development experience. Specialized in B2B development including ERP and POS systems, as well as UI/UX collaboration. Proficient in Vue.js, Angular, React, TypeScript, SCSS, and more.",
       "knowsAbout": [
         "Frontend Development",
         "Vue.js",
