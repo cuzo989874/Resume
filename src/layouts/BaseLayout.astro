@@ -1,6 +1,7 @@
 ---
 import '../styles/style.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import DarkModeSwitcher from '../components/DarkModeSwitcher.astro';
 
 interface Props {
   title: string;
@@ -67,6 +68,7 @@ const {
 </head>
 <body>
   <LanguageSwitcher currentLang={lang as 'zh-TW' | 'en'} />
+  <DarkModeSwitcher />
   <slot />
 </body>
 </html>

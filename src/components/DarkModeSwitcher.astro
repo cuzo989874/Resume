@@ -1,0 +1,183 @@
+---
+---
+
+<div class="dark-mode-switcher">
+  <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+    <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  (function() {
+    // 获取系统偏好设置
+    const getSystemPreference = () => {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+
+    // 获取存储的主题设置
+    const getStoredTheme = () => {
+      try {
+        return localStorage.getItem('theme');
+      } catch (e) {
+        return null;
+      }
+    };
+
+    // 设置主题
+    const setTheme = (theme) => {
+      const root = document.documentElement;
+      if (theme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    };
+
+    // 初始化主题
+    const initTheme = () => {
+      const storedTheme = getStoredTheme();
+      const systemPreference = getSystemPreference();
+      
+      // 如果用户之前有选择，使用用户选择；否则使用系统偏好
+      const theme = storedTheme || systemPreference;
+      setTheme(theme);
+      
+      // 更新按钮状态
+      updateButtonState(theme);
+    };
+
+    // 更新按钮状态
+    const updateButtonState = (theme) => {
+      const button = document.getElementById('dark-mode-toggle');
+      if (!button) return;
+      
+      const sunIcon = button.querySelector('.sun-icon') as HTMLElement;
+      const moonIcon = button.querySelector('.moon-icon') as HTMLElement;
+      
+      if (sunIcon && moonIcon) {
+        if (theme === 'dark') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      }
+    };
+
+    // 切换主题
+    const toggleTheme = () => {
+      const root = document.documentElement;
+      const isDark = root.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      
+      setTheme(newTheme);
+      updateButtonState(newTheme);
+      
+      // 保存用户选择
+      try {
+        localStorage.setItem('theme', newTheme);
+      } catch (e) {
+        console.warn('Failed to save theme preference:', e);
+      }
+    };
+
+    // 监听系统主题变化
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (e) => {
+      // 只有在用户没有手动设置主题时才跟随系统变化
+      const storedTheme = getStoredTheme();
+      if (!storedTheme) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        updateButtonState(newTheme);
+      }
+    });
+
+    // 初始化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+
+    // 绑定切换按钮事件
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('dark-mode-toggle');
+      if (button) {
+        button.addEventListener('click', toggleTheme);
+      }
+    });
+  })();
+</script>
+
+<style>
+  .dark-mode-switcher {
+    position: fixed;
+    top: 72px;
+    right:20px;
+    z-index: 1000;
+  }
+
+  .dark-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dark-mode-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .dark-mode-btn svg {
+    flex-shrink: 0;
+  }
+
+  .dark-mode-btn .moon-icon {
+    display: none;
+  }
+
+  .dark-mode-btn .sun-icon {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .dark-mode-switcher {
+      top: 10px;
+      right: 60px;
+    }
+
+    .dark-mode-btn {
+      width: 36px;
+      height: 36px;
+    }
+  }
+</style>
