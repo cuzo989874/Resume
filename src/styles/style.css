@@ -434,3 +434,36 @@ a:hover {
     padding: 24px 16px;
   }
 }
+
+@media print {
+  .container {
+    margin-top: 0;
+    box-shadow: none;
+  }
+
+  .header-content h1 {
+    font-size: 1.875rem;
+  }
+
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    padding-left: 0;
+    margin-bottom: 12px;
+  }
+
+  .section-title:before {
+    display: none;
+  }
+
+  .resume-footer {
+    display: none;
+  }
+
+  .tags span {
+    padding: 4px 8px;
+  }
+}

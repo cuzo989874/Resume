@@ -68,4 +68,10 @@ const targetLabel = isZhTW ? 'English' : '中文';
       font-size: 0.85rem;
     }
   }
+
+  @media print {
+    .lang-switcher, .lang-btn {
+      display: none;
+    }
+  }
 </style>
