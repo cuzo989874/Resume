@@ -37,7 +37,7 @@ export const en = {
       date: "Jun 2025 ~ Now",
       desc: "Dispatched to a bank's development center for collaborative development. Mentored the startup team to transform AI Building POC items into actual products for practical application.",
       desc2: "Served as Front-end mentor & UX Supporter within the team, leading up to 4 interns and 1 junior engineer to continuously maintain applications. When I joined, there were no other full-time developers, so I had to serve as the team's IT Assistant, helping interns use AI to understand the situation and write excellent code.",
-      desc3: "AI Trash cleanup - highest personal monthly cumulative changes reached +5000/-500",
+      desc3: "AI Trash cleanup - highest personal monthly cumulative changes reached +5000/-5000",
       desc4: "All work is written in React, currently using version 19, and using react-router-dom in CSR mode."
     },
     job2: {

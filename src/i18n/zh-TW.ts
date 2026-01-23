@@ -37,8 +37,8 @@ export const zhTW = {
       date: "Jun 2025 ~ Now",
       desc: "外派至銀行的開發中心協同開發。輔導案場初創團隊將 AI Building 的 POC item 做成 Product 真正應用到實務面。",
       desc2: "擔任團隊內的 Front-end mentor & UX Supporter，最多帶領4個實習生，1個 junior engineer 持續 maintain application。在進去的時候沒有其他正職開發人員需要擔任團隊的 IT Assistant 幫助實習生用 AI 掌握狀況，並寫出優秀的程式碼。",
-      desc3: "AI Trash clean，最高個人單月累積改動量來到 +5000/-500",
-      desc4: "工作全部都是以 react 撰寫，目前主要使用 19版，並使用 react-router-dom 用 CSR mode 撰寫。"
+      desc3: "AI Trash clean，最高個人單月累積改動量來到 +5000/-5000",
+      desc4: "工作全部都是以 react v19 進行開發，並使用 react-router-dom 用 CSR mode 撰寫。"
     },
     job2: {
       role: "Return Helper, 資深前端工程師",
